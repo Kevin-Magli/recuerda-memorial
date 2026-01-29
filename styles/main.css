@@ -1,0 +1,351 @@
+/* ================= ROOT ================= */
+:root {
+  --blue-start: #1ecad3;
+  --blue-end: #4facfe;
+  --gradient-blue: linear-gradient(0deg, var(--blue-start), var(--blue-end));
+
+  --dark: #0a2540;
+  --light: #f4fbfd;
+  --white: #ffffff;
+  --text: #1e1e1e;
+
+  --radius: 30px;
+  --max-width: 1200px;
+  --space: 1.5rem;
+
+  --font: 'Poppins', sans-serif;
+}
+
+/* ================= GLOBAL ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font);
+  color: var(--text);
+  background: var(--white);
+}
+
+img {
+  width: 100%;
+  display: block;
+  border-radius: var(--radius);
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: auto;
+  padding: var(--space);
+}
+
+.section {
+  padding: 4rem 0;
+}
+
+.light {
+  background: var(--light);
+}
+
+h1 {
+    font-size: 40px;
+    line-height: 1.1;
+}
+h2 {
+    font-size: 30px;
+    line-height: 1.1;
+}
+
+/* ================= UTIL ================= */
+.center-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  text-align: center;
+}
+
+.text-gradient {
+  background: var(--gradient-blue);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.pill {
+  padding: 0.4rem 2rem;
+  border-radius: var(--radius);
+  background: var(--gradient-blue);
+  color: var(--white);
+  font-size: 0.8rem;
+  font-weight: bold;
+  width: fit-content;
+}
+
+.btn {
+  padding: 0.8rem 1.6rem;
+  border-radius: var(--radius);
+  border: none;
+  cursor: pointer;
+  width: fit-content;
+  font-weight: bold;
+}
+
+.btn-primary {
+  background: var(--gradient-blue);
+  color: var(--white);
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 2px solid var(--blue-start);
+  color: var(--blue-start);
+}
+
+.btn-outline {
+  background: var(--white);
+  color: var(--blue-start);
+  border-radius: var(--radius);
+  padding: 0.6rem 1.4rem;
+}
+
+/* ================= MAIN ================ */
+/* main {
+    padding-top: 7rem
+} */
+
+/* ================= NAV ================= */
+.navbar {
+  background: var(--gradient-blue);
+  position: fixed;
+  width: var(--max-width);
+  justify-self: center;
+  border-radius: var(--radius);
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+.navbar-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  color: var(--white);
+  font-weight: bold;
+  font-size: 1.4rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  color: var(--white);
+  text-decoration: none;
+}
+
+/* ================= HERO ================= */
+.hero {
+  background: var(--light);
+  padding-top: 7rem;
+}
+
+.hero-content {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+}
+
+.hero-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.hero-text .pill {
+  width: fit-content;
+}
+
+.hero-image {
+  flex: 1;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.hero-stats {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.avatars {
+  display: flex;
+}
+
+.avatars img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-left: -10px;
+}
+
+/* ================= ABOUT ================= */
+.about-layout {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+}
+
+.about-image {
+  position: relative;
+  flex: 1;
+}
+
+.floating-card {
+  position: absolute;
+  bottom: -20px;
+  left: 20px;
+  background: var(--gradient-blue);
+  color: var(--white);
+  padding: 1rem;
+  border-radius: var(--radius);
+}
+
+.about-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.about-stats {
+  display: flex;
+  gap: 1rem;
+  /* margin: 1.5rem 0; */
+}
+
+.stat-box {
+  background: var(--light);
+  padding: 1rem;
+  border-radius: var(--radius);
+  text-align: center;
+}
+
+
+
+/* ================= SPLIT ================= */
+.split-layout {
+  display: flex;
+  gap: 2rem;
+}
+
+.split-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  background: var(--white);
+  padding: 2rem;
+  border-radius: var(--radius);
+}
+
+/* ================= FEATURES ================= */
+.feature-cards {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.feature-card {
+  flex: 1;
+  padding: 2rem;
+  border-radius: var(--radius);
+  background: var(--light);
+}
+
+.feature-primary {
+  background: var(--gradient-blue);
+  color: var(--white);
+}
+
+/* ================= STEPS ================= */
+.steps {
+  display: flex;
+  gap: 3rem;
+  margin-top: 2rem;
+}
+
+.step strong {
+  font-size: 2rem;
+  color: var(--blue-start);
+}
+
+/* ================= TESTIMONIAL ================= */
+.testimonial-layout {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.testimonial-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 500px;
+}
+
+/* ================= FAQ ================= */
+.faq-layout {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.faq-list {
+  flex: 1;
+}
+
+.faq-item {
+  background: var(--white);
+  padding: 1.2rem;
+  border-radius: var(--radius);
+  margin-bottom: 1rem;
+}
+
+.faq-cta {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* ================= FOOTER ================= */
+.footer {
+  background: var(--dark);
+  color: var(--white);
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.footer-links a {
+  color: var(--white);
+}
