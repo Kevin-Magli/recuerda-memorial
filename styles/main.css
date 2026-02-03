@@ -1,8 +1,8 @@
 /* ================= ROOT ================= */
 :root {
-  --blue-start: #1ecad3;
-  --blue-end: #4facfe;
-  --gradient-blue: linear-gradient(0deg, var(--blue-start), var(--blue-end));
+  --blue-start: #0cc0df;
+  --blue-end: #5ce1e6;
+  --gradient-blue: linear-gradient(180deg, var(--blue-start), var(--blue-end));
 
   --dark: #0a2540;
   --light: #f4fbfd;
@@ -13,7 +13,7 @@
   --max-width: 1200px;
   --space: 1.5rem;
 
-  --font: 'Poppins', sans-serif;
+  --font: 'Quicksand', sans-serif;
 }
 
 /* ================= GLOBAL ================= */

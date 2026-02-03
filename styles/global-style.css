@@ -1,0 +1,137 @@
+/* ================= ROOT ================= */
+:root {
+  --blue-start: #0cc0df;
+  --blue-end: #5ce1e6;
+  --gradient-blue: linear-gradient(180deg, var(--blue-start), var(--blue-end));
+
+  --dark: #0a2540;
+  --light: #f4fbfd;
+  --white: #ffffff;
+  --text: #1e1e1e;
+
+  --text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
+
+  --radius: 2rem;
+  --max-width: 1200px;
+  --space: 1.5rem;
+
+  --font: "Quicksand", sans-serif;
+}
+
+/* ================= GLOBAL ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font);
+  color: var(--text);
+  background: var(--white);
+}
+
+.pill-text {
+  background: var(--gradient-blue);
+  color: var(--light);
+  width: fit-content;
+  font-weight: 600;
+  border-radius: var(--radius);
+  padding: 0.1em 1em;
+}
+
+.pill-text p,
+.btn {
+  text-shadow: var(--text-shadow);
+}
+
+.btn {
+  border: solid 1px var(--blue-start);
+  border-radius: var(--radius);
+  padding: 1em 2em;
+  text-decoration: none;
+  color: var(--light);
+  font-weight: bold;
+}
+
+.btn-var1 {
+  background: var(--gradient-blue);
+}
+
+.btn-var2 {
+  background-color: var(--light);
+  color: var(--blue-start);
+}
+
+.section {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 3em 0;
+  max-width: 90vw;
+  margin: 0 auto;
+  justify-content: center;
+  gap: 3rem;
+}
+
+.section > * {
+  flex: 1 1 20rem; /* responsavel por fracionar qualquer numero de containers internos, uma delicia */
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  text-align: center;
+  align-items: center;
+}
+
+p {
+  max-width: 40ch;
+}
+
+.icon {
+  width: 2rem;
+  filter: brightness(0) saturate(100%) invert(100%);
+}
+
+.icon-container {
+  background-color: var(--blue-start);
+  padding: 1rem;
+  /* width: clamp(3.5rem, 10vw, 6rem); */
+  border-radius: var(--radius);
+}
+
+.highlighted-icon {
+  filter: invert(51%) sepia(80%) saturate(2858%) hue-rotate(180deg) brightness(96%) contrast(91%);
+}
+
+.highlighted-icon-container {
+  background-color: var(--light);
+}
+
+.icon-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin: 1rem 0;
+  padding: 2rem;
+  border: 1px solid #f0f0f0;
+  border-radius: var(--radius);
+  width: 20rem;
+}
+.highlighted-card {
+  background: var(--gradient-blue);
+  color: var(--light);
+  text-shadow: var(--text-shadow);
+}
+
+/* ----------------- */
+.hero-CTA {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
