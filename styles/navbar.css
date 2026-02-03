@@ -1,0 +1,110 @@
+/* ================= MOBILE NAV ================= */
+/* Estilos aplicados apenas quando o JS ativa o modo mobile */
+#nav-mobile {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: var(--white);
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+  border-top-left-radius: var(--radius);
+  border-top-right-radius: var(--radius);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* Garante que o conteudo comece do topo */
+  z-index: 1000;
+  overflow: visible; /* Permite que o botão "vaze" para fora da barra */
+  padding-top: 2.5rem; /* Espaço extra no topo para o botão não ficar em cima dos links quando aberto */
+
+  /* Lógica da Animação:
+     Esconde tudo (100%) exceto uma barra discreta de 3rem */
+  transform: translateY(calc(100% - 3rem));
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+#nav-mobile .logo-container {
+  display: none;
+}
+
+#nav-mobile.open {
+  transform: translateY(0); /* Revela o menu inteiro */
+}
+
+#nav-mobile button {
+  position: absolute; /* Tira o botão do fluxo para posicionar livremente */
+  top: -1.75rem; /* Puxa o botão para cima (metade da altura dele) */
+  left: 50%; /* Centraliza horizontalmente */
+  transform: translateX(
+    -50%
+  ); /* Corrige o ponto de ancoragem da centralização */
+
+  height: 3.5rem;
+  width: 3.5rem;
+  border-radius: 50%; /* Círculo perfeito */
+  font-size: 1.5rem;
+  padding: 0;
+  display: grid;
+  place-items: center;
+  background: var(--gradient-blue);
+  color: var(--white);
+  border: none;
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.15); /* Sombra para dar profundidade */
+  cursor: pointer;
+}
+
+#nav-mobile a {
+  width: 100%;
+  text-align: center;
+  padding: 1.5rem;
+  border-top: 1px solid #f0f0f0;
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+#nav-mobile .nav-links {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+#nav-desktop {
+  position: fixed;
+  z-index: 99;
+  top: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  justify-self: center;
+  width: 90vw;
+  background: var(--gradient-blue);
+  padding: 1rem 2rem;
+  gap: 3rem;
+  border-radius: var(--radius);
+  box-shadow: var(--text-shadow);
+}
+
+#nav-desktop button {
+  display: none;
+}
+
+#nav-desktop .logo {
+  color: var(--light);
+  text-shadow: var(--text-shadow);
+}
+
+#nav-desktop .nav-links a {
+  text-decoration: none;
+  color: var(--light);
+  font-weight: bold;
+  text-shadow: var(--text-shadow);
+}
+
+#nav-desktop .nav-links {
+  display: flex;
+  flex-direction: row;
+  gap: 3rem;
+}

@@ -1,0 +1,36 @@
+body {
+    padding-top: 5rem;
+}
+
+.values-section {
+    flex-direction: column 
+}
+
+.final-cta, .final-cta .container {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding-left: 0;
+    padding-right: 0;
+    color: var(--light);
+    text-shadow: var(--text-shadow);
+}
+.final-cta {
+    background: linear-gradient(rgba(12, 192, 223, 0.7), rgba(92, 225, 230, 0.7)), url('https://picsum.photos/1200/1200');
+
+}
+
+footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+#nav-mobile {
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    flex-direction: row;
+}

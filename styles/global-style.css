@@ -40,6 +40,12 @@ body {
   padding: 0.1em 1em;
 }
 
+.pill-text,
+.btn,
+.title {
+  text-transform: capitalize;
+}
+
 .pill-text p,
 .btn {
   text-shadow: var(--text-shadow);
@@ -86,8 +92,18 @@ body {
   align-items: center;
 }
 
+.container > * {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 p {
   max-width: 40ch;
+}
+.title {
+  max-width: 20ch;
 }
 
 .icon {
@@ -103,7 +119,8 @@ p {
 }
 
 .highlighted-icon {
-  filter: invert(51%) sepia(80%) saturate(2858%) hue-rotate(180deg) brightness(96%) contrast(91%);
+  filter: invert(51%) sepia(80%) saturate(2858%) hue-rotate(180deg)
+    brightness(96%) contrast(91%);
 }
 
 .highlighted-icon-container {
@@ -126,12 +143,4 @@ p {
   background: var(--gradient-blue);
   color: var(--light);
   text-shadow: var(--text-shadow);
-}
-
-/* ----------------- */
-.hero-CTA {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-  justify-content: center;
 }
