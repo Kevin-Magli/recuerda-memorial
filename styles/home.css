@@ -1,36 +1,149 @@
 body {
-    padding-top: 5rem;
+  padding-top: 7rem;
 }
 
 .values-section {
-    flex-direction: column 
+  flex-direction: column;
 }
 
-.final-cta, .final-cta .container {
-    width: 100%;
-    max-width: 100%;
-    margin: 0;
-    padding-left: 0;
-    padding-right: 0;
-    color: var(--light);
-    text-shadow: var(--text-shadow);
+.carousel {
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-track {
+  position: relative;
+  transition: transform 0.3s ease;
+  width: 100%;
+  margin: 0 auto;
+  min-height: 120px; /* Ajuste conforme a altura necessária */
+}
+
+.carousel-item {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+
+}
+.carousel-item.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin: 1rem 0;
+}
+
+.carousel-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 1px solid var(--blue-start);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  padding: 0;
+}
+
+.carousel-dot:hover {
+  background-color: var(--blue-end);
+}
+
+.carousel-dot.active {
+  background-color: var(--blue-start);
+}
+
+.carousel-buttons{
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.carousel-buttons button {
+  background: var(--gradient-blue);
+  color: var(--light);
+  border: none;
+  border-radius: var(--radius);
+  padding: 0.5rem 1.5rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  box-shadow: var(--text-shadow);
+  transition: background 0.3s ease, color 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.carousel-buttons button:hover {
+  background: var(--light);
+  color: var(--blue-start);
+  border-color: var(--blue-start);
+  color: var(--blue-start);
+  border-color: var(--blue-start);
+}
+
+.carousel-buttons button:active {
+  transform: scale(0.95);
+}
+
+
+.final-cta,
+.final-cta .container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding-left: 0;
+  padding-right: 0;
+  color: var(--light);
+  text-shadow: var(--text-shadow);
 }
 .final-cta {
-    background: linear-gradient(rgba(12, 192, 223, 0.7), rgba(92, 225, 230, 0.7)), url('https://picsum.photos/1200/1200');
-
+  background:
+    linear-gradient(rgba(12, 192, 223, 0.7), rgba(92, 225, 230, 0.7)),
+    url("https://picsum.photos/1200/1200");
 }
 
 footer {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
 }
 
 #nav-mobile {
-    position: fixed;
-    bottom: 0;
-    display: flex;
-    flex-direction: row;
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  flex-direction: row;
+}
+
+.logo-mobile {
+  display: none;
+}
+
+@media screen and (max-width: 1000px) {
+  .logo-mobile {
+    display: block;
+    padding-bottom: 2rem;
+    font-size: 3rem;
+    background: var(--gradient-blue);
+    -webkit-background-clip: text;
+    color: transparent;
+    filter: drop-shadow(var(--text-shadow));
+  }
+  body {
+    padding-top: 0;
+  }
 }

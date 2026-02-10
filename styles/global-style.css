@@ -127,6 +127,14 @@ p {
   background-color: var(--light);
 }
 
+.icon-cards-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
 .icon-card {
   display: flex;
   flex-direction: column;
@@ -139,6 +147,7 @@ p {
   border-radius: var(--radius);
   width: 20rem;
 }
+
 .highlighted-card {
   background: var(--gradient-blue);
   color: var(--light);

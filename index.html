@@ -17,9 +17,9 @@
 
   <body>
     <header>
-      <div class="logo"></div>
       <nav>
         <div class="logo-container">
+          <div class="logo"></div>
           <h1 class="logo">Recuerda</h1>
         </div>
         <button>Menu</button>
@@ -36,6 +36,7 @@
     <main>
       <div class="hero-section section">
         <div class="container">
+          <h1 class="logo-mobile">Recuerda</h1>
           <h1 class="title">Eternize as memórias de quem você ama</h1>
           <p>
             Um espaço calmo para preservar, celebrar e compartilhar lembranças
@@ -64,7 +65,7 @@
         </div>
         <div>
           <!-- >Aqui vai ficar um print de um memorial mock pronto bonitão< -->
-      </div>
+        </div>
       </div>
       <div class="values-section section">
         <div class="container">
@@ -77,63 +78,63 @@
             O Recuerda foi pensado para ser um espaço calmo, sem ruido e sem
             pressa — onde memórias são tratadas com o respeito que merecem.
           </p>
-        </div>
-        <div class="values-icon-cards container">
-          <div class="highlighted-card icon-card">
-            <div class=" highlighted-icon-container icon-container">
-              <img
-                class="icon highlighted-icon"
-                src="https://api.dicebear.com/9.x/identicon/svg?seed=privacidade"
-                alt="icon"
-              />
+          <div class="icon-cards-container container">
+            <div class="highlighted-card icon-card">
+              <div class="highlighted-icon-container icon-container">
+                <img
+                  class="icon highlighted-icon"
+                  src="https://api.dicebear.com/9.x/identicon/svg?seed=privacidade"
+                  alt="icon"
+                />
+              </div>
+              <h3 class="title">Você decide quem vê</h3>
+              <p>
+                Cada memorial pode ser mantido privado ou compartilhado apenas
+                com pessoas escolhidas por você.
+              </p>
             </div>
-            <h3 class="title">Você decide quem vê</h3>
-            <p>
-              Cada memorial pode ser mantido privado ou compartilhado apenas com
-              pessoas escolhidas por você.
-            </p>
-          </div>
-          <div class="icon-card">
-            <div class="icon-container">
-              <img
-              class="icon"
-              src="https://api.dicebear.com/9.x/identicon/svg?seed=foco"
-              alt="icon"
-            />
+            <div class="icon-card">
+              <div class="icon-container">
+                <img
+                  class="icon"
+                  src="https://api.dicebear.com/9.x/identicon/svg?seed=foco"
+                  alt="icon"
+                />
+              </div>
+              <h3 class="title">Sem distrações</h3>
+              <p>
+                Aqui não há feeds barulhentos, algoritmos ou conteúdos fora de
+                contexto
+              </p>
             </div>
-            <h3 class="title">Sem distrações</h3>
-            <p>
-              Aqui não há feeds barulhentos, algoritmos ou conteúdos fora de
-              contexto
-            </p>
-          </div>
-          <div class="icon-card">
-            <div class="icon-container">
-              <img
-                class="icon"
-                src="https://api.dicebear.com/9.x/identicon/svg?seed=tempo"
-                alt="icon"
-              />
+            <div class="icon-card">
+              <div class="icon-container">
+                <img
+                  class="icon"
+                  src="https://api.dicebear.com/9.x/identicon/svg?seed=tempo"
+                  alt="icon"
+                />
+              </div>
+              <h3 class="title">Sem pressa</h3>
+              <p>
+                Memórias podem ser construídas aos poucos, quando fizer sentido
+                pra você.
+              </p>
             </div>
-            <h3 class="title">Sem pressa</h3>
-            <p>
-              Memórias podem ser construídas aos poucos, quando fizer sentido
-              pra você.
-            </p>
-          </div>
-          <div class="icon-card">
-            <div class="icon-container">
-              <img
-                class="icon"
-                src="https://api.dicebear.com/9.x/identicon/svg?seed=etica"
-                alt="icon"
-              />
+            <div class="icon-card">
+              <div class="icon-container">
+                <img
+                  class="icon"
+                  src="https://api.dicebear.com/9.x/identicon/svg?seed=etica"
+                  alt="icon"
+                />
+              </div>
+              <h3 class="title">Com cuidado e ética</h3>
+              <p>
+                O conteúdo do recuerda é pensado para preservar histórias, não
+                explorá-las.
+              </p>
             </div>
-            <h3 class="title">Com cuidado e ética</h3>
-            <p>
-              O conteúdo do recuerda é pensado para preservar histórias, não
-              explorá-las.
-            </p>
           </div>
         </div>
       </div>
@@ -148,13 +149,41 @@
             lembranças e compartilha-las com respeito.
           </p>
         </div>
-        <div class="container">
+        <div class="carousel container">
           <!-- Aqui vai ter um carrossel de cards, uns 4 cards para os 4 casos. Background bonito com texto emocional no centro. -->
+          <div class="carousel-track">
+            <div class="carousel-item">
+              <div class="icon-card">
+                <p>Para quem quer homenagear alguém que já partiu.</p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="icon-card">
+                <p>
+                  Para quem deseja guardar histórias de pessoas importantes
+                  enquanto ainda estão presentes.
+                </p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="icon-card">
+                <p>Para famílias e amigos que querem lembrar juntos.</p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="icon-card">
+                <p>
+                  Para quem prefere um espaço calmo, longe do ruído das redes
+                  sociais comuns.
+                </p>
+              </div>
+            </div>
+          </div>
 
-          <!-- Card 1: Para quem quer homenagear alguem que ja partiu. -->
-          <!-- Card 2: Para quem deseja guardar histórias de pessoas importantes enquanto ainda estão presentes. -->
-          <!-- Card 3: Para familias e amigos que querem lembrar juntos -->
-          <!-- Card 4: Para quem prefere um espaço calmo, longe do ruído das redes sociais comuns. -->
+          <div class="carousel-buttons">
+            <button class="prev">⬅</button>
+            <button class="next">➡</button>
+          </div>
         </div>
       </div>
       <div class="final-cta section">
@@ -172,5 +201,6 @@
       <p>&copy; 2026 Recuerda. Todos os direitos reservados.</p>
     </footer>
     <script src="scripts/mobile-nav.js"></script>
+    <script src="scripts/carousel-handler.js"></script>
   </body>
 </html>
