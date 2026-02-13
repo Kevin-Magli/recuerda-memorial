@@ -1,3 +1,19 @@
+/* ================= CONTROLE JS ================= */
+
+/* Mobile começa escondido */
+#nav-mobile {
+  display: none;
+}
+
+/* Quando o JS ativa o modo mobile */
+body.mobile-mode #nav-mobile {
+  display: flex;
+}
+
+body.mobile-mode #nav-desktop {
+  display: none;
+}
+
 /* ================= MOBILE NAV ================= */
 /* Estilos aplicados apenas quando o JS ativa o modo mobile */
 #nav-mobile {
@@ -10,18 +26,19 @@
   border-top-left-radius: var(--radius);
   border-top-right-radius: var(--radius);
 
-  display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start; /* Garante que o conteudo comece do topo */
+  justify-content: flex-start;
   z-index: 1000;
-  overflow: visible; /* Permite que o botão "vaze" para fora da barra */
-  padding-top: 2.5rem; /* Espaço extra no topo para o botão não ficar em cima dos links quando aberto */
+  overflow: visible;
+  padding-top: 2.5rem;
 
   /* Lógica da Animação:
      Esconde tudo (100%) exceto uma barra discreta de 3rem */
   transform: translateY(calc(100% - 3rem));
   transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+
+  will-change: transform; /* melhoria leve de estabilidade */
 }
 
 #nav-mobile .logo-container {
@@ -29,20 +46,18 @@
 }
 
 #nav-mobile.open {
-  transform: translateY(0); /* Revela o menu inteiro */
+  transform: translateY(0);
 }
 
-#nav-mobile button {
-  position: absolute; /* Tira o botão do fluxo para posicionar livremente */
-  top: -1.75rem; /* Puxa o botão para cima (metade da altura dele) */
-  left: 50%; /* Centraliza horizontalmente */
-  transform: translateX(
-    -50%
-  ); /* Corrige o ponto de ancoragem da centralização */
+#nav-mobile #menu-toggle {
+  position: absolute;
+  top: -1.75rem;
+  left: 50%;
+  transform: translateX(-50%);
 
   height: 3.5rem;
   width: 3.5rem;
-  border-radius: 50%; /* Círculo perfeito */
+  border-radius: 50%;
   font-size: 1.5rem;
   padding: 0;
   display: grid;
@@ -50,7 +65,7 @@
   background: var(--gradient-blue);
   color: var(--white);
   border: none;
-  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.15); /* Sombra para dar profundidade */
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.15);
   cursor: pointer;
 }
 
@@ -69,6 +84,8 @@
   flex-direction: column;
   width: 100%;
 }
+
+/* ================= DESKTOP NAV ================= */
 
 #nav-desktop {
   position: fixed;
@@ -96,15 +113,15 @@
   text-shadow: var(--text-shadow);
 }
 
+#nav-desktop .nav-links {
+  display: flex;
+  flex-direction: row;
+  gap: 3rem;
+}
+
 #nav-desktop .nav-links a {
   text-decoration: none;
   color: var(--light);
   font-weight: bold;
   text-shadow: var(--text-shadow);
-}
-
-#nav-desktop .nav-links {
-  display: flex;
-  flex-direction: row;
-  gap: 3rem;
 }
