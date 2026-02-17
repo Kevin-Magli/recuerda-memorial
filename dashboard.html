@@ -4,13 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="./styles/global-style.css">
-    <link rel="stylesheet" href="./styles/navbar.css">
+    <link rel="stylesheet" href="/styles/global-style.css">
+    <link rel="stylesheet" href="/styles/navbar.css">
+    <link rel="stylesheet" href="/styles/dashboard.css">
 </head>
 <body>
     <header>
         <div id="navbar-component"></div>
     </header>
-    <script src="scripts/navbar.js"></script>
+    <div id="top-bar">
+        <div class="memorial tab">
+            <img src="https://api.dicebear.com/9.x/identicon/svg?seed=memorial" alt="icon" width="20">
+            <span>Memoriais</span>
+        </div>
+        <div class="memory tab">
+            <img src="https://api.dicebear.com/9.x/identicon/svg?seed=memory" alt="icon" width="20">
+            <span>Lembranças</span>
+        </div>
+        <div class="access tab">
+            <img src="https://api.dicebear.com/9.x/identicon/svg?seed=access" alt="icon" width="20">
+            <span>Acessos</span>
+        </div>
+        <div class="media tab">
+            <img src="https://api.dicebear.com/9.x/identicon/svg?seed=media" alt="icon" width="20">
+            <span>Mídia</span>
+        </div>
+        <div class="subscription tab">
+            <img src="https://api.dicebear.com/9.x/identicon/svg?seed=subscription" alt="icon" width="20">
+            <span>Assinatura</span>
+        </div>
+    </div>
+    <script src="/scripts/navbar.js"></script>
+    <script src="/scripts/dashboard.js"></script>
 </body>
 </html>

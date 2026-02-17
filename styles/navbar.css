@@ -32,90 +32,106 @@ body.mobile-mode #nav-desktop {
 }
 
 
-/* ================= MOBILE NAV ================= */
+/* ================= MOBILE NAV (INSTAGRAM STYLE) ================= */
+
 /* Estilos aplicados apenas quando o JS ativa o modo mobile */
 #nav-mobile {
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
+  height: 5rem; /* Altura fixa para a barra de navegação */
   background: var(--white);
-  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
-  border-top-left-radius: var(--radius);
-  border-top-right-radius: var(--radius);
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  border-top: 1px solid #f0f0f0;
 
-  flex-direction: column;
+  display: flex;
+  flex-direction: row;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-evenly; /* Distribui os ícones igualmente */
   z-index: 1000;
-  overflow: visible;
-  padding-top: 2.5rem;
-  padding-bottom: 2.5rem;
-
-  /* Lógica da Animação:
-     Esconde tudo (100%) exceto uma barra discreta de 3rem */
-  transform: translateY(calc(100% - 3rem));
-  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-
-  will-change: transform; /* melhoria leve de estabilidade */
+  padding: 0 1rem;
 }
 
+/* Oculta elementos desnecessários na nav mobile */
+#nav-mobile #menu-toggle,
 #nav-mobile .logo-container {
   display: none;
 }
 
-#nav-mobile.open {
-  transform: translateY(0);
+/* Garante que os containers de links preencham a navbar */
+#nav-mobile .nav-links,
+#nav-mobile .nav-actions {
+  display: contents; /* Remove a necessidade de reestruturar o HTML */
 }
 
-#nav-mobile #menu-toggle {
-  position: absolute;
-  top: -1.75rem;
-  left: 50%;
-  transform: translateX(-50%);
-
-  height: 3.5rem;
-  width: 3.5rem;
-  border-radius: 50%;
-  font-size: 1.5rem;
-  padding: 0;
-  display: grid;
-  place-items: center;
-  background: var(--gradient-blue);
-  color: var(--white);
+/* Estilo base para todos os botões/links da nav mobile */
+#nav-mobile a,
+#nav-mobile button {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  text-indent: -9999px; /* Esconde o texto */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 1.5rem;
   border: none;
-  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.15);
+  padding: 0;
+  background-color: transparent;
   cursor: pointer;
 }
 
-#nav-mobile a {
-  width: 100%;
-  text-align: center;
-  padding: 1.5rem;
-  border-top: 1px solid #f0f0f0;
-  color: var(--text);
-  text-decoration: none;
-  font-weight: 600;
+/* Ordem dos ícones usando flex-order */
+#nav-mobile a[href="index.html"] { order: 1; }
+#nav-mobile a[href="memorials.html"] { order: 2; }
+#nav-mobile #primary-action { order: 3; }
+#nav-mobile a[href="dashboard.html"] { order: 4; }
+#nav-mobile #account-button { order: 5; }
+
+/* Ícones SVG (URL-encoded) */
+#nav-mobile a[href="index.html"] {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%230a2540'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6' /%3E%3C/svg%3E");
 }
 
-#nav-mobile .nav-links {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-
-#nav-mobile .nav-actions {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  justify-content: center;
-  align-items: center;
-  
+#nav-mobile a[href="memorials.html"] {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%230a2540'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z' /%3E%3C/svg%3E");
 }
 
 #nav-mobile #primary-action {
-  padding: 1rem 2rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%230a2540'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M12 4v16m8-8H4' /%3E%3C/svg%3E");
+  background-size: 2rem; /* Ícone de "Criar" um pouco maior */
 }
+
+#nav-mobile a[href="dashboard.html"] {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%230a2540'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z' /%3E%3C/svg%3E");
+}
+
+#account-button {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%230a2540'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z'%3E%3C/path%3E%3C/svg%3E");
+  background-size: 1.5rem;
+}
+
+/* Oculta elementos que não fazem parte da nova nav mobile */
+#nav-mobile .logo-container,
+#nav-mobile.open,
+#nav-mobile .nav-links a,
+#nav-mobile .nav-actions {
+  /* Resetando estilos antigos para evitar conflitos */
+  transform: none;
+  transition: none;
+  width: auto;
+  text-align: center;
+  padding: 0;
+  border-top: none;
+  color: transparent;
+  font-weight: normal;
+}
+#nav-mobile #primary-action {
+  padding: 0;
+}
+
 
 /* ================= DESKTOP NAV ================= */
 
