@@ -1,6 +1,6 @@
 const MOBILE_BREAKPOINT = 1000;
 const HAMBURGER_ICON = "☰";
-const CLOSE_ICON = "✕";
+const CLOSE_ICON = "×";
 const ORIGINAL_BUTTON_TEXT = "Menu";
 
 document.addEventListener("DOMContentLoaded", async () => {
@@ -54,7 +54,7 @@ function updateNavbarState() {
 
   if (currentUser) {
     accountButton.textContent = "Conta";
-    accountButton.onclick = () => (window.location.href = "/account.html");
+    accountButton.onclick = () => (window.location.href = "/dashboard.html");
 
     primaryAction.textContent = "Criar Memorial";
     primaryAction.href = "/create.html";

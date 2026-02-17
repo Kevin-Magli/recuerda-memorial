@@ -1,0 +1,30 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+#register-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 90vw;
+    max-width: 30rem;
+    padding: 2rem;
+    background-color: var(--white);
+    box-shadow: var(--text-shadow);
+    border-radius: var(--radius);
+}
+
+#register-form > * {
+    border-radius: var(--radius);
+    border: var(--border);
+    background-color: hsl(0, 0%, 98%);
+    padding: 1rem 2rem;
+}
+
+#register-form button:hover {
+    cursor: pointer;
+}
