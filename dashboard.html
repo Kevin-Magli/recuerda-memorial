@@ -13,28 +13,29 @@
         <div id="navbar-component"></div>
     </header>
     <div id="top-bar">
-        <div class="memorial tab">
+        <div class="tab" data-tab="memorial">
             <img src="https://api.dicebear.com/9.x/identicon/svg?seed=memorial" alt="icon" width="20">
             <span>Memoriais</span>
         </div>
-        <div class="memory tab">
+        <div class="tab" data-tab="memory">
             <img src="https://api.dicebear.com/9.x/identicon/svg?seed=memory" alt="icon" width="20">
             <span>Lembranças</span>
         </div>
-        <div class="access tab">
+        <div class="tab" data-tab="access">
             <img src="https://api.dicebear.com/9.x/identicon/svg?seed=access" alt="icon" width="20">
             <span>Acessos</span>
         </div>
-        <div class="media tab">
+        <div class="tab" data-tab="media">
             <img src="https://api.dicebear.com/9.x/identicon/svg?seed=media" alt="icon" width="20">
             <span>Mídia</span>
         </div>
-        <div class="subscription tab">
+        <div class="tab" data-tab="subscription">
             <img src="https://api.dicebear.com/9.x/identicon/svg?seed=subscription" alt="icon" width="20">
             <span>Assinatura</span>
         </div>
     </div>
+    <div id="content"></div>
     <script src="/scripts/navbar.js"></script>
-    <script src="/scripts/dashboard.js"></script>
+    <script type="module" src="/scripts/dashboard.js"></script>
 </body>
 </html>
