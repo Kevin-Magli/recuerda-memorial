@@ -148,7 +148,8 @@ body:has(#nav-desktop) {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  justify-self: center;
+  left: 50%;
+  transform: translateX(-50%);
   width: 90vw;
   background: var(--gradient-blue);
   padding: 1rem 2rem;
