@@ -1,3 +1,5 @@
+import { convertToWebP } from "./conversion.js";
+
 const form = document.getElementById("memorial-form");
 
 form.addEventListener("submit", handleSubmit);
@@ -45,23 +47,41 @@ function validateMemorial(memorial) {
   return true;
 }
 
-function prepareAndSave(memorial) {
-  if (memorial.profilePic) {
-    const reader = new FileReader();
+async function prepareAndSave(memorial) {
+  try {
+    if (memorial.profilePic) {
+      const webpBlob = await convertToWebP(memorial.profilePic);
 
-    reader.onload = function () {
-      memorial.image = reader.result;
+      const reader = new FileReader();
+
+      const readAsDataURL = (blob) => {
+        return new Promise((resolve, reject) => {
+          reader.onload = () => resolve(reader.result);
+          reader.onerror = reject;
+          reader.readAsDataURL(blob);
+        });
+      };
+
+      memorial.image = await readAsDataURL(webpBlob);
       delete memorial.profilePic;
-      saveMemorial(memorial);
-    };
+    }
 
-    reader.readAsDataURL(memorial.profilePic);
-  } else {
     saveMemorial(memorial);
+
+  } catch (err) {
+    console.error("Erro ao preparar e salvar o memorial:", err);
+    alert("Ocorreu um erro ao criar o memorial. Por favor, tente novamente.");
   }
 }
 
 function saveMemorial(memorial) {
-  localStorage.setItem("memorial", JSON.stringify(memorial));
-  window.location.href = "/memorial.html";
+
+  // convertemos os memoriais do localStorage para uma lista
+  const memorials = JSON.parse(localStorage.getItem("memorials")) || [];
+  // jogamos o memorial(carregado com a função) pra dentro da lista (ainda não no localStorage)
+  memorials.push(memorial);
+  // substituimos a lista do localStorage com a lista incrementada
+  localStorage.setItem("memorials", JSON.stringify(memorials));
+  // redirecionamos para a pagina de memorial com o id do memorial
+  window.location.href = `/memorial.html?id=${memorial.id}`;
 }

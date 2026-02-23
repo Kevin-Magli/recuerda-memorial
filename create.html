@@ -4,13 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Criar Memorial</title>
-    <link rel="stylesheet" href="./styles/navbar.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./styles/global-style.css">
+    <link rel="stylesheet" href="./styles/navbar.css">
+    <link rel="stylesheet" href="./styles/memorial-creation.css">
 </head>
 <body>
     <header>
         <div id="navbar-component"></div>
     </header>
+
+    <h1 class="title">Crie seu memorial</h1>
+
     <form id="memorial-form">
         <label for="name">Nome</label>
         <input type="text" id="name" required>
@@ -25,17 +35,7 @@
         <button type="submit" class="btn-var1">Criar</button>
     </form>
 
-    <style>
-        #memorial-form {
-            display: flex;
-            flex-direction: column;
-            max-width: 20rem;
-            margin: 0 auto;
-        }
-    </style>
-
     <script src="./scripts/navbar.js"></script>
-    <script type="module" src="./scripts/conversion.js"></script>
-    <script src="./scripts/memorial-creation.js"></script>
+    <script type="module" src="./scripts/memorial-creation.js"></script>
 </body>
 </html>

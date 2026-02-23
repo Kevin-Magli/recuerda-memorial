@@ -1,29 +1,30 @@
-export function convertToWebP(file) {
-  return new Promise((resolve) => {
+export async function convertToWebP(file, quality = 0.8) {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
     const reader = new FileReader();
 
-    reader.onload = function (event) {
-      const img = new Image();
-      img.src = event.target.result;
+    reader.onload = () => {
+      img.src = reader.result;
+    };
 
-      img.onload = function () {
-        const canvas = document.createElement("canvas");
-        const ctx = canvas.getContext("2d");
+    reader.onerror = reject;
 
-        // Redimensiona (exemplo max 800px largura)
-        const maxWidth = 800;
-        const scale = maxWidth / img.width;
+    img.onload = () => {
+      const canvas = document.createElement("canvas");
+      canvas.width = img.width;
+      canvas.height = img.height;
 
-        canvas.width = maxWidth;
-        canvas.height = img.height * scale;
+      const ctx = canvas.getContext("2d");
+      ctx.drawImage(img, 0, 0);
 
-        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-
-        // Converte para WebP com qualidade 0.7
-        const webp = canvas.toDataURL("image/webp", 0.7);
-
-        resolve(webp);
-      };
+      canvas.toBlob(
+        (blob) => {
+          if (!blob) return reject("Erro na conversão");
+          resolve(blob); // retorna apenas o Blob WebP
+        },
+        "image/webp",
+        quality,
+      );
     };
 
     reader.readAsDataURL(file);

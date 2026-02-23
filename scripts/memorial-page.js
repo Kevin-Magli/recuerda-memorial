@@ -1,26 +1,38 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const memorial = JSON.parse(localStorage.getItem("memorial"));
+  const params = new URLSearchParams(window.location.search);
+  const id = Number(params.get("id"));
 
-    if (!memorial) {
-        alert("Nenhum memorial encontrado.");
-        return;
-    }
+  const memorials = JSON.parse(localStorage.getItem("memorials")) || [];
 
-    renderMemorial(memorial);
+  const memorial = memorials.find((m) => m.id === id);
+
+  // if (!memorial) {
+  //   alert("Nenhum memorial encontrado.");
+  //   return;
+  // }
+
+  renderMemorial(memorial);
 });
 
 function renderMemorial(memorial) {
-    document.getElementById("memorial-name").textContent = memorial.name;
+  document.getElementById("memorial-name").textContent = memorial.name;
 
-    const dates = memorial.dead
-        ? `${memorial.born} - ${memorial.dead}`
-        : `${memorial.born}`;
-    
-    document.getElementById("memorial-dates").textContent = dates;
+  const formatDate = (dateStr) => {
+    if (!dateStr) return "";
+    const [year, month, day] = dateStr.split("-");
+    return `${day}/${month}/${year}`;
+  };
 
-    document.getElementById("memorial-description").textContent = memorial.description || "";
+  const dates = memorial.dead
+    ? `${formatDate(memorial.born)} - ${formatDate(memorial.dead)}`
+    : formatDate(memorial.born);
 
-    if (memorial.image) {
-        document.getElementById("memorial-image").src = memorial.image;
-    }
+  document.getElementById("memorial-dates").textContent = dates;
+
+  document.getElementById("memorial-description").textContent =
+    memorial.description || "";
+
+  if (memorial.image) {
+    document.getElementById("memorial-image").src = memorial.image;
+  }
 }

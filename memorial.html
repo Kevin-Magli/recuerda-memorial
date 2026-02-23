@@ -1,23 +1,35 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Memorial</title>
-    <link rel="stylesheet" href="./styles/navbar.css">
-    <link rel="stylesheet" href="./styles/global-style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="./styles/navbar.css" />
+    <link rel="stylesheet" href="./styles/global-style.css" />
+    <link rel="stylesheet" href="./styles/memorial-style.css" />
+  </head>
+  <body>
     <header>
-        <div id="navbar-component"></div>
+      <div id="navbar-component"></div>
     </header>
 
-    <h1 id="memorial-name"></h1>
-    <p id="memorial-dates"></p>
-    <p id="memorial-description"></p>
-    <img id="memorial-image">
+    <div class="memorial-container">
+      <div class="profile-main-section">
+        <div class="img-container">
+          <img id="memorial-image" src="media/placeholder-profile-img.jpg" />
+        </div>
+        <div class="main-info">
+          <h1 id="memorial-name">Kevin Martire Magliocchi</h1>
+          <p id="memorial-dates">02/04/2001 - 20/02/2026</p>
+        </div>
+      </div>
 
+      <p id="memorial-description">
+        Esse sou eu e a descrição do meu memorial que todos vão ver. Eu espero
+        que gostem!
+      </p>
+    </div>
     <script src="./scripts/navbar.js"></script>
     <script src="./scripts/memorial-page.js"></script>
-</body>
+  </body>
 </html>
