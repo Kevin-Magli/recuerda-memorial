@@ -15,9 +15,33 @@ document.addEventListener("DOMContentLoaded", async () => {
 // Carrega navbar.html
 // ---------------------------
 async function loadNavbar() {
-  const response = await fetch("/components/navbar.html");
+  // Carregamos o CSS e aguardamos a resolução da Promise para garantir que os estilos
+  // estejam aplicados antes da lógica de redimensionamento (handleResize) calcular o layout.
+  // Isso evita "pulos" visuais e falhas na detecção do estado mobile/desktop.
+  await loadNavbarCSS();
+
+  const response = await fetch("/shared/components/navbar/navbar.html");
   const navHTML = await response.text();
+
   document.querySelector("#navbar-component").innerHTML = navHTML;
+}
+
+function loadNavbarCSS() {
+  return new Promise((resolve) => {
+    if (document.querySelector('link[data-navbar-style]')) {
+      return resolve();
+    }
+
+    const link = document.createElement('link');
+    link.rel = "stylesheet";
+    link.href = "/shared/components/navbar/navbar.css";
+    link.setAttribute('data-navbar-style', 'true');
+
+    link.onload = () => resolve();
+    link.onerror = () => resolve(); // Resolve mesmo em erro para não travar o carregamento
+
+    document.head.appendChild(link);
+  });
 }
 
 // ---------------------------
@@ -54,16 +78,17 @@ function updateNavbarState() {
 
   if (currentUser) {
     accountButton.textContent = "Conta";
-    accountButton.onclick = () => (window.location.href = "/dashboard.html");
+    accountButton.onclick = () => (window.location.href = "/features/dashboard/dashboard.html");
 
     primaryAction.textContent = "Criar Memorial";
-    primaryAction.href = "/create.html";
+    primaryAction.href =
+      "/features/memorial/creation/create.html";
   } else {
     accountButton.textContent = "Login";
-    accountButton.onclick = () => (window.location.href = "/login-page.html");
+    accountButton.onclick = () => (window.location.href = "/features/auth/login/login-page.html");
 
     primaryAction.textContent = "Eternizar Agora";
-    primaryAction.href = "/login-page.html";
+    primaryAction.href = "/features/auth/login/login-page.html";
   }
 }
 

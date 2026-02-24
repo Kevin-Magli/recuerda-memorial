@@ -1,9 +1,8 @@
-import { convertToWebP } from "./conversion.js";
+import { convertToWebP } from "/shared/utils/conversion.js";
 
 const form = document.getElementById("memorial-form");
 
 form.addEventListener("submit", handleSubmit);
-
 
 function handleSubmit(event) {
   event.preventDefault();
@@ -67,7 +66,6 @@ async function prepareAndSave(memorial) {
     }
 
     saveMemorial(memorial);
-
   } catch (err) {
     console.error("Erro ao preparar e salvar o memorial:", err);
     alert("Ocorreu um erro ao criar o memorial. Por favor, tente novamente.");
@@ -75,13 +73,12 @@ async function prepareAndSave(memorial) {
 }
 
 function saveMemorial(memorial) {
-
   // convertemos os memoriais do localStorage para uma lista
   const memorials = JSON.parse(localStorage.getItem("memorials")) || [];
   // jogamos o memorial(carregado com a função) pra dentro da lista (ainda não no localStorage)
   memorials.push(memorial);
   // substituimos a lista do localStorage com a lista incrementada
   localStorage.setItem("memorials", JSON.stringify(memorials));
-  // redirecionamos para a pagina de memorial com o id do memorial
-  window.location.href = `/memorial.html?id=${memorial.id}`;
+  // O link está correto pois o arquivo memorial.html está dentro da pasta 'page' relativa a este diretório
+  window.location.href = "../page/memorial.html?id=" + memorial.id;
 }

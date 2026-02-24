@@ -10,9 +10,8 @@
       href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./styles/global-style.css" />
-    <link rel="stylesheet" href="./styles/home.css" />
-    <link rel="stylesheet" href="./styles/navbar.css" />
+    <link rel="stylesheet" href="/shared/styles/global-style.css" />
+    <link rel="stylesheet" href="/features/onboarding/index.css" />
   </head>
 
   <body>
@@ -29,13 +28,13 @@
             de quem você ama.
           </p>
           <div class="hero-CTA">
-            <a href="#" class="btn btn-var1"> Criar um Memorial </a>
-            <a href="#" class="btn btn-var2">Como Funciona?</a>
+            <a href="/features/memorial/creation/create.html" class="btn btn-var1"> Criar um Memorial </a>
+            <a href="#explaining-section" class="btn btn-var2">Como Funciona?</a>
           </div>
           <!-- <img src="https://picsum.photos/300/300" alt=""> -->
         </div>
       </div>
-      <div class="explaining-section section">
+      <div class="explaining-section section" id="explaining-section">
         <!-- lembra que o proposito aqui é que o usuario compreenda a natureza dos memoriais do site -->
         <div class="container">
           <div class="pill-text">
@@ -186,9 +185,9 @@
     <footer>
       <p>&copy; 2026 Recuerda. Todos os direitos reservados.</p>
     </footer>
-    <script src="scripts/navbar.js"></script>
-    <script src="scripts/carousel-handler.js"></script>
-    <script src="scripts/supabase/supabaseClient.js"></script>
-    <script src="scripts/supabase/testConnection.js"></script>
+    <script src="/shared/components/navbar/navbar.js"></script>
+    <script src="/features/onboarding/carousel-handler.js"></script>
+    <script src="/services/supabase/supabaseClient.js"></script>
+    <script src="/services/supabase/testConnection.js"></script>
   </body>
 </html>

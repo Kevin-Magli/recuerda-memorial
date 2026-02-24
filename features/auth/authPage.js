@@ -15,7 +15,7 @@ document
       await signUp(name, email, password);
       message.textContent = "Conta criada com Sucesso! Redirecionando...";
       setTimeout(() => {
-        window.location.href = "/dashboard.html";
+        window.location.href = "features/dashboard/dashboard.html";
       }, 1000);
     } catch (err) {
       message.textContent = "Erro: " + err.message;
@@ -34,7 +34,7 @@ document
       await signIn(email, password);
       message.textContent = "Login realizado! Redirecionando...";
       setTimeout(() => {
-        window.location.href = "./dashboard.html";
+        window.location.href = "features/dashboard/dashboard.html";
       }, 1000);
     } catch (err) {
       message.textContent = "Erro: " + err.message;

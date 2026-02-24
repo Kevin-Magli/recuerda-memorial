@@ -1,4 +1,4 @@
-import { supabase } from "./supabaseClient.js";
+import { supabase } from "/services/supabase/supabaseClient.js";
 
 export async function signUp(name, email, password) {
   const { data, error } = await supabase.auth.signUp({
@@ -11,7 +11,6 @@ export async function signUp(name, email, password) {
   if (error) throw error;
   return data;
 }
-
 
 export async function signIn(email, password) {
   const { data, error } = await supabase.auth.signInWithPassword({
@@ -37,7 +36,7 @@ export async function getUser() {
   return session?.user ?? null;
 }
 
-export async function requireAuth(redirectTo = "./login-page.html") {
+export async function requireAuth(redirectTo = "/index.html") {
   const session = await getSession();
   if (!session) {
     window.location.href = redirectTo;
