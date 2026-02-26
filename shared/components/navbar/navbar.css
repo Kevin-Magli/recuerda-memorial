@@ -138,6 +138,13 @@
     filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.2));
   }
 
+  /* Explicação: No mobile, os links com a classe .active (como o dashboard) 
+     estavam herdando 'opacity: 0.6' do estilo base, o que os deixava diferentes.
+     Forçamos opacidade total e aplicamos um filtro branco para consistência com o design. */
+  .nav-links a.active {
+    opacity: 1;
+  }
+
   /* Ordena os ícones para a visualização mobile */
   .nav-home {
     order: 1;
@@ -157,22 +164,21 @@
 
   .nav-home {
     background-image: url("/assets/icons/home.svg");
-    /* https://www.svgrepo.com/svg/529026/home?edit=true */
   }
 
   .nav-search {
     background-image: url("/assets/icons/search.svg");
-    /* https://www.svgrepo.com/svg/532552/search-alt-2?edit=true */
   }
 
   .primary-action {
     background-image: url("/assets/icons/add.svg");
-    /* https://www.svgrepo.com/svg/528833/add-square?edit=true */
   }
 
   .nav-dashboard {
     background-image: url("/assets/icons/dashboard.svg");
-    /* https://www.svgrepo.com/svg/520684/dashboard?edit=true */
+    background-size: 2.0rem !important;
+    /* Se o ícone do dashboard parecer escuro, podemos forçar o filtro: */
+    filter: brightness(0) saturate(100%) invert(48%) sepia(79%) saturate(2476%) hue-rotate(159deg) brightness(94%) contrast(92%);
   }
 
   #account-button {
