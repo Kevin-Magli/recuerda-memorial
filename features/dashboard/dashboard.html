@@ -1,40 +1,60 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dashboard</title>
-    <link rel="stylesheet" href="/shared/styles/global-style.css">
-    <link rel="stylesheet" href="dashboard.css">
-</head>
-<body>
+    <link rel="stylesheet" href="/shared/styles/global-style.css" />
+    <link rel="stylesheet" href="dashboard.css" />
+  </head>
+  <body>
     <header>
-        <div id="navbar-component"></div>
+      <div id="navbar-component"></div>
     </header>
     <div id="top-bar">
-        <div class="tab" data-tab="memorial">
-            <img src="https://api.dicebear.com/9.x/identicon/svg?seed=memorial" alt="icon" width="20">
-            <span>Memoriais</span>
-        </div>
-        <div class="tab" data-tab="memory">
-            <img src="https://api.dicebear.com/9.x/identicon/svg?seed=memory" alt="icon" width="20">
-            <span>Lembranças</span>
-        </div>
-        <div class="tab" data-tab="access">
-            <img src="https://api.dicebear.com/9.x/identicon/svg?seed=access" alt="icon" width="20">
-            <span>Acessos</span>
-        </div>
-        <div class="tab" data-tab="media">
-            <img src="https://api.dicebear.com/9.x/identicon/svg?seed=media" alt="icon" width="20">
-            <span>Mídia</span>
-        </div>
-        <div class="tab" data-tab="subscription">
-            <img src="https://api.dicebear.com/9.x/identicon/svg?seed=subscription" alt="icon" width="20">
-            <span>Assinatura</span>
-        </div>
+      <div class="tab" data-tab="memorial">
+        <img
+          src="https://api.dicebear.com/9.x/identicon/svg?seed=memorial"
+          alt="icon"
+          width="20"
+        />
+        <span>Memoriais</span>
+      </div>
+      <div class="tab" data-tab="memory">
+        <img
+          src="https://api.dicebear.com/9.x/identicon/svg?seed=memory"
+          alt="icon"
+          width="20"
+        />
+        <span>Lembranças</span>
+      </div>
+      <div class="tab" data-tab="access">
+        <img
+          src="https://api.dicebear.com/9.x/identicon/svg?seed=access"
+          alt="icon"
+          width="20"
+        />
+        <span>Acessos</span>
+      </div>
+      <div class="tab" data-tab="media">
+        <img
+          src="https://api.dicebear.com/9.x/identicon/svg?seed=media"
+          alt="icon"
+          width="20"
+        />
+        <span>Mídia</span>
+      </div>
+      <div class="tab" data-tab="subscription">
+        <img
+          src="https://api.dicebear.com/9.x/identicon/svg?seed=subscription"
+          alt="icon"
+          width="20"
+        />
+        <span>Assinatura</span>
+      </div>
     </div>
     <div id="content"></div>
-    <script src="/shared/components/navbar/navbar.js"></script>
+    <script type="module" src="/main.js"></script>
     <script type="module" src="dashboard.js"></script>
-</body>
+  </body>
 </html>

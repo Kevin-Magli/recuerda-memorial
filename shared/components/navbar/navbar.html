@@ -1,24 +1,26 @@
-<nav>
-  <div class="logo-container">
-    <div class="logo"></div>
-    <h1 class="logo">Recuerda</h1>
+<nav class="navbar">
+  <!-- Left (logo desktop) -->
+  <div class="navbar-left">
+    <div class="logo-container">
+      <div class="logo"></div>
+      <h1 class="logo-text">Recuerda</h1>
+    </div>
   </div>
 
-  <button id="menu-toggle">Menu</button>
-
-  <div class="nav-links">
-    <a id="index" href="/index.html">Inicio</a>
-    <a id="dashboard" href="/features/dashboard/dashboard.html">Painel</a>
-    <a id="memorials" href="/features/memorial/feed/memorial-feed.html">Memoriais</a>
+  <!-- Center links -->
+  <div class="navbar-center nav-links">
+    <a href="/features/home/home.html" data-link class="nav-home">Início</a>
+    <a href="/features/memorial/feed/memorial-feed.html" data-link class="nav-search">Buscar</a>
+    <a href="/features/dashboard/dashboard.html" data-link class="nav-dashboard">Painel</a>
   </div>
-
-  <div class="nav-actions">
-    <a href="/features/memorial/creation/create.html" class="btn btn-var2" id="primary-action">
-      Eternizar Agora
+  
+  <!-- Right -->
+  <div class="navbar-right nav-actions">
+    <a href="/features/memorial/creation/create.html" data-link class="primary-action btn btn-var2">
+      Criar
     </a>
-
-    <button id="account-button" class="account-btn">
-      Conta
+    <button id="account-button" class="account-btn btn btn-var2">
+      Login
     </button>
   </div>
 </nav>

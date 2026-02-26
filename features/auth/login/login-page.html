@@ -24,10 +24,17 @@
 
       <!-- Formulário de Login -->
       <form id="login-form" class="form-content active">
-        <input type="email" id="login-email" placeholder="Email" required />
+        <input
+          type="email"
+          id="login-email"
+          name="login-email"
+          placeholder="Email"
+          required
+        />
         <input
           type="password"
           id="login-password"
+          name="login-password"
           placeholder="Senha"
           required
         />
@@ -36,9 +43,27 @@
 
       <!-- Formulário de Registro -->
       <form id="register-form" class="form-content">
-        <input type="text" id="reg-name" placeholder="Nome" required />
-        <input type="email" id="reg-email" placeholder="Email" required />
-        <input type="password" id="reg-password" placeholder="Senha" required />
+        <input
+          type="text"
+          id="reg-name"
+          name="name"
+          placeholder="Nome"
+          required
+        />
+        <input
+          type="email"
+          id="reg-email"
+          name="email"
+          placeholder="Email"
+          required
+        />
+        <input
+          type="password"
+          id="reg-password"
+          name="password"
+          placeholder="Senha"
+          required
+        />
         <button class="btn-var1" type="submit">Cadastrar</button>
       </form>
     </div>
@@ -64,8 +89,10 @@
         }
       }
     </script>
-    <!-- <script src="scripts/login-handler.js"></script> -->
-    <script type="module" src="/shared/scripts/supabase/authPage.js"></script>
-    <script src="/shared/components/navbar/navbar.js"></script>
+    <script
+      type="module"
+      src="/features/auth/login/account-handler.js"
+    ></script>
+    <script type="module" src="/main.js"></script>
   </body>
 </html>

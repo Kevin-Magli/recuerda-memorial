@@ -1,0 +1,30 @@
+      /* temporary */
+      main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 80vh;
+        gap: 1rem;
+      }
+      .title-section {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+      }
+      #logout-btn {
+        background: hsl(0, 80%, 50%);
+        color: var(--white);
+        font-weight: bold;
+        font-size: 1rem;
+        text-shadow: var(--text-shadow);
+        border: none;
+        padding: 1rem 2rem;
+        border-radius: var(--radius);
+        border: var(--border);
+        cursor: pointer;
+        box-shadow: 0 0 15px hsla(0, 80%, 50%, 0.4);
+        outline: inherit;
+      }

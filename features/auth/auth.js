@@ -1,5 +1,7 @@
 import { supabase } from "/services/supabase/supabaseClient.js";
 
+let authListenerInitialized = false;
+
 export async function signUp(name, email, password) {
   const { data, error } = await supabase.auth.signUp({
     email,
@@ -32,15 +34,40 @@ export async function getSession() {
 }
 
 export async function getUser() {
-  const session = await getSession();
-  return session?.user ?? null;
+  try {
+    const { data } = await supabase.auth.getUser();
+    return data.user;
+  } catch (error) {
+    return null;
+  }
+}
+
+export function initAuthListener(redirectTo = "/index.html") {
+  if (authListenerInitialized) return;
+  
+  supabase.auth.onAuthStateChange((event, session) => {
+    if (!session) {
+      window.location.href = redirectTo;
+    }
+  });
+
+  authListenerInitialized = true;
 }
 
 export async function requireAuth(redirectTo = "/index.html") {
-  const session = await getSession();
-  if (!session) {
+  const user = await getUser();
+  if (!user) {
     window.location.href = redirectTo;
     return null;
   }
-  return session.user;
+  initAuthListener(redirectTo);
+
+  return user;
+}
+
+export async function redirectIfAuthenticated(redirectTo = "/features/dashboard/dashboard.html") {
+  const session = await getSession();
+  if (session) {
+    window.location.href = redirectTo;
+  }
 }
