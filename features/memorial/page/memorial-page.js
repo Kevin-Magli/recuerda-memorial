@@ -1,15 +1,30 @@
-document.addEventListener("DOMContentLoaded", () => {
+import { supabase } from "/services/supabase/supabaseClient.js";
+
+document.addEventListener("DOMContentLoaded", async () => {
   const params = new URLSearchParams(window.location.search);
-  const id = Number(params.get("id"));
+  const id = params.get("id");
 
-  const memorials = JSON.parse(localStorage.getItem("memorials")) || [];
+  console.log("ID recebido:", id);
 
-  const memorial = memorials.find((m) => m.id === id);
+  if (!id) {
+    alert("Memorial não encontrado.");
+    return;
+  }
 
-  // if (!memorial) {
-  //   alert("Nenhum memorial encontrado.");
-  //   return;
-  // }
+  const { data: memorial, error } = await supabase
+    .from("memorials")
+    .select("*")
+    .eq("id", id)
+    .single(); // 🔥 importante
+
+  console.log("MEMORIAL:", memorial);
+  console.log("ERROR:", error);
+
+  if (error || !memorial) {
+    console.error("Erro ao carregar memorial:", error);
+    alert("Memorial não encontrado.");
+    return;
+  }
 
   renderMemorial(memorial);
 });
@@ -23,16 +38,16 @@ function renderMemorial(memorial) {
     return `${day}/${month}/${year}`;
   };
 
-  const dates = memorial.dead
-    ? `${formatDate(memorial.born)} - ${formatDate(memorial.dead)}`
-    : formatDate(memorial.born);
+  const dates =
+    memorial.birth_date && memorial.death_date
+      ? `${formatDate(memorial.birth_date)} - ${formatDate(memorial.death_date)}`
+      : formatDate(memorial.birth_date);
 
   document.getElementById("memorial-dates").textContent = dates;
-
   document.getElementById("memorial-description").textContent =
     memorial.description || "";
 
-  if (memorial.image) {
-    document.getElementById("memorial-image").src = memorial.image;
+  if (memorial.profile_image) {
+    document.getElementById("memorial-image").src = memorial.profile_image;
   }
 }

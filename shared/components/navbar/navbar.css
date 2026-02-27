@@ -86,8 +86,21 @@
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
   }
 
+  .logo-img-mobile {
+    display: none;
+  }
   .logo-text {
     color: white;
+  }
+  .logo-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+  }
+  .logo-container .logo-image {
+    width: 5rem;
   }
 }
 
