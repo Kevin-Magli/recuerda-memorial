@@ -44,3 +44,18 @@ body {
     background-color: hsl(250, 0%, 90%);
     padding: 1em;
 }
+
+.actionsContainer {
+    margin-top: 2rem;
+}
+  .btn {
+    border: var(--border);
+    border-radius: var(--radius);
+    cursor: pointer;
+  }
+  .btn.edit {
+    border: solid 1px var(--blue-start);
+  }
+  .btn.delete {
+    background-color: hsl(0, 90%, 55%);
+  }

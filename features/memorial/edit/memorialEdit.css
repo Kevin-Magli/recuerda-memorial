@@ -1,0 +1,76 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Added min-height to allow vertical centering; without it, the body only tall as its content */
+    margin: 0;
+}
+
+.title {
+    margin-bottom: 2rem;
+    text-transform: capitalize;
+}
+
+#memorial-form {
+    display: flex;
+    flex-direction: column;
+    width: 90vw;
+    max-width: 30rem;
+    margin: 0 auto;
+    gap: 1rem;
+}
+
+#memorial-form label {
+    font-weight: bold;
+    margin-left: 1rem;
+
+}
+
+/* The :has() pseudo-class selects the label only if its immediate next sibling (+) 
+   is a required element. This allows us to append a red asterisk via ::after 
+   without changing the HTML structure or manually adding classes. */
+#memorial-form label:has(+ :required)::after {
+    content: " *";
+    color: var(--blue-start);
+}
+
+#memorial-form input {
+    border-radius: var(--radius);
+    border: var(--border);
+    background-color: hsl(250, 0%, 96%);
+    padding: 1rem 1.5rem;
+}
+#memorial-form input[type=file] {
+    background-color: hsl(250, 0%, 96%);
+    padding: 0.5rem;
+}
+
+#memorial-form input[type=file]::file-selector-button {
+    border-radius: var(--radius);
+    border: none;
+    background: var(--gradient-blue);
+    color: var(--light);
+    padding: 0.5rem 1rem;
+    margin-right: 1rem;
+    cursor: pointer;
+    font-family: var(--font);
+    font-weight: bold;
+    text-shadow: var(--text-shadow);
+}
+#memorial-form textarea {
+    border-radius: var(--radius);
+    border: var(--border);
+    background-color: hsl(250, 0%, 96%);
+    min-height: 5rem;
+    padding: 1rem 1.5rem;
+}
+#memorial-form button {
+    border-radius: var(--radius);
+    border: var(--border);
+    padding: 1rem 1.5rem;
+    width: 100%;
+    font-weight: bold;
+    color: var(--light);
+    text-shadow: var(--text-shadow);
+}
