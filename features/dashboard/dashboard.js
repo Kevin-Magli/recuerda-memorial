@@ -1,7 +1,7 @@
 import { requireAuth } from "../auth/auth.js"; // CORREÇÃO: Adicionada extensão .js para evitar erro de resolução de módulo
 
 // CORREÇÃO: requireAuth é assíncrona; embora funcione sem await aqui, é boa prática garantir a verificação antes de carregar o conteúdo
-requireAuth(); 
+await requireAuth(); 
 
 const topBar = document.querySelector("#top-bar");
 const tabs = document.querySelectorAll(".tab");
@@ -20,14 +20,29 @@ tabs.forEach((tab) => {
 });
 
 async function loadPage(page) {
-  const response = await fetch(`./screens/${page}.html`);
+  const response = await fetch(`/features/dashboard/screens/${page}.html`);
   const html = await response.text();
 
-  if (content) content.innerHTML = html; // CORREÇÃO: Verificação de existência do elemento content antes de atribuir innerHTML
+  // Remove existing screen-specific styles
+  document.getElementById("screen-style")?.remove();
+
+  // Load screen-specific CSS
+  const link = document.createElement("link");
+  link.id = "screen-style";
+  link.rel = "stylesheet";
+  link.href = `/features/dashboard/styles/${page}.css`;
+  document.head.appendChild(link);
+
+  if (content) {
+    content.innerHTML = html;
+    // Garante que o scroll volte ao topo ao trocar de aba
+    content.scrollTop = 0;
+  }
 
   try {
-    // CORREÇÃO: Adicionado cache-busting ou garantia de caminho relativo para o import dinâmico
-    const module = await import(`./scripts/${page}.js?v=${Date.now()}`);
+    // Importa o módulo e tenta executar a função init
+    // O sufixo ?t= garante que o script seja re-executado ao trocar de abas
+    const module = await import(`/features/dashboard/scripts/${page}.js?t=${Date.now()}`);
     if (module.init) module.init();
   } catch (err) {
     console.warn(`Sem JS para ${page} ou erro no script:`, err.message);

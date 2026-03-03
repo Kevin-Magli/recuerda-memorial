@@ -1,0 +1,75 @@
+/* body {
+    font-family: "Quicksand", sans-serif;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  } */
+
+
+.memorial-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+.mem-card {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 2rem;
+  box-shadow: var(--text-shadow);
+  background-color: var(--card-background);
+  padding: 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  max-width: 30rem;
+}
+
+.mem-card .row-1 {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.column-1 {
+  display: flex;
+  align-self: flex-start;
+  padding-top: 1rem;
+}
+.column-2 {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.mem-card-profile {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.row-2 {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.mem-card .btn {
+  border: var(--border);
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+.mem-card .btn.edit {
+  border: solid 1px var(--blue-start);
+}
+.mem-card .btn.delete {
+  background-color: hsl(0, 90%, 55%);
+  border: none;
+}

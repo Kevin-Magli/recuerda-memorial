@@ -23,18 +23,20 @@
     <form id="memorial-form">
       <label for="name">Nome</label>
       <input type="text" id="name" required />
+      <!-- Nota: O formato de exibição do input date (dd/mm/yyyy vs mm/dd/yyyy) 
+           é controlado pelo navegador/OS do usuário e não pode ser forçado via HTML puro. -->
       <label for="born">Data de Nascimento</label>
       <input type="date" name="born" id="born" required />
       <label for="dead">Data de Falecimento</label>
       <input type="date" name="dead" id="dead" />
-      <!-- <label for="profile-pic">Foto da Pessoa</label>
-      <input type="file" name="profile-pic" id="profile-pic" accept="image/*" /> -->
+      <label for="profile-pic">Foto da Pessoa</label>
+      <input type="file" name="profile-pic" id="profile-pic" accept="image/*" />
       <label for="description">Descrição Curta</label>
       <textarea name="description" id="description" maxlength="200"></textarea>
       <button type="submit" class="btn-var1">Criar</button>
     </form>
 
     <script type="module" src="/main.js"></script>
-    <script type="module" src="memorial-creation.js"></script>
+    <script type="module" src="memorialCreation.js"></script>
   </body>
 </html>

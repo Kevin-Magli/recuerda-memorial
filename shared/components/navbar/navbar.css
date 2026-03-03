@@ -177,26 +177,26 @@
   }
 
   .nav-home {
-    background-image: url("/assets/icons/home.svg");
+    background-image: url("/shared/assets/icons/nav/home.svg");
   }
 
   .nav-search {
-    background-image: url("/assets/icons/search.svg");
+    background-image: url("/shared/assets/icons/nav/search.svg");
   }
 
   .primary-action {
-    background-image: url("/assets/icons/add.svg");
+    background-image: url("/shared/assets/icons/nav/add.svg");
   }
 
   .nav-dashboard {
-    background-image: url("/assets/icons/dashboard.svg");
+    background-image: url("/shared/assets/icons/nav/dashboard.svg");
     background-size: 2.0rem !important;
     /* Se o ícone do dashboard parecer escuro, podemos forçar o filtro: */
     filter: brightness(0) saturate(100%) invert(48%) sepia(79%) saturate(2476%) hue-rotate(159deg) brightness(94%) contrast(92%);
   }
 
   #account-button {
-    background-image: url("/assets/icons/user.svg");
+    background-image: url("/shared/assets/icons/nav/user.svg");
     /* https://www.svgrepo.com/svg/529293/user?edit=true */
   }
 }

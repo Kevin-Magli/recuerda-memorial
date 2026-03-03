@@ -7,7 +7,7 @@ function injectFavicon() {
     const link = document.createElement('link');
     link.rel = 'icon';
     link.type = 'image/png';
-    link.href = '/assets/logo2.png'; // Adjust path if necessary
+    link.href = '/shared/assets/logo2.png'; // Caminho absoluto para funcionar em todas as rotas
     document.head.appendChild(link);
 }
 

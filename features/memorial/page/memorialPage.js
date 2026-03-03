@@ -1,14 +1,15 @@
 import { supabase } from "/services/supabase/supabaseClient.js";
 import { getUser } from "/features/auth/auth.js";
 
+// Aguarda o carregamento do DOM para iniciar a busca dos dados
 document.addEventListener("DOMContentLoaded", async () => {
+  // Extrai o ID do memorial da URL
   const params = new URLSearchParams(window.location.search);
   const id = params.get("id");
 
-  console.log("ID recebido:", id);
-
   if (!id) {
-    alert("Memorial não encontrado.");
+    console.error("ID não fornecido na URL");
+    document.body.innerHTML = "<h1>Memorial não encontrado</h1>";
     return;
   }
 
@@ -16,10 +17,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     .from("memorials")
     .select("*")
     .eq("id", id)
-    .single(); // 🔥 importante
-
-  console.log("MEMORIAL:", memorial);
-  console.log("ERROR:", error);
+    .single();
 
   if (error || !memorial) {
     console.error("Erro ao carregar memorial:", error);
@@ -27,13 +25,18 @@ document.addEventListener("DOMContentLoaded", async () => {
     return;
   }
 
+  // Obtém o usuário logado para verificar permissões de edição/exclusão
   const user = await getUser();
   renderMemorial(memorial, user);
 });
 
+/**
+ * Preenche o HTML com os dados do memorial e configura ações do proprietário
+ */
 function renderMemorial(memorial, user) {
   document.getElementById("memorial-name").textContent = memorial.name;
 
+  // Formata datas de YYYY-MM-DD para DD/MM/YYYY
   const formatDate = (dateStr) => {
     if (!dateStr) return "";
     const [year, month, day] = dateStr.split("-");
@@ -49,11 +52,15 @@ function renderMemorial(memorial, user) {
   document.getElementById("memorial-description").textContent =
     memorial.description || "";
 
-  if (memorial.profile_image) {
-    document.getElementById("memorial-image").src = memorial.profile_image;
+  // Renderiza a imagem se ela existir (URL salva no banco via memorialCreation)
+  if (memorial.image_url) {
+    const imgElement = document.getElementById("memorial-image");
+    if (imgElement) {
+      imgElement.src = memorial.image_url;
+    }
   }
 
-  // Configuração dos botões de ação
+  // Configuração dos botões de ação (apenas para o criador do memorial)
   const editButton = document.querySelector(".btn.edit");
   const deleteButton = document.querySelector(".btn.delete");
 
@@ -63,6 +70,7 @@ function renderMemorial(memorial, user) {
         window.location.href = `/features/memorial/edit/edit.html?id=${memorial.id}`;
       };
     }
+    
     if (deleteButton) {
       deleteButton.onclick = async () => {
         const confirmed = confirm(`Tem certeza que deseja apagar o memorial de "${memorial.name}"? Essa ação não pode ser desfeita.`);
@@ -82,7 +90,9 @@ function renderMemorial(memorial, user) {
       };
     }
   } else {
+    // Esconde botões se o usuário não for o dono
     if (editButton) editButton.style.display = "none";
     if (deleteButton) deleteButton.style.display = "none";
   }
 }
+

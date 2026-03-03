@@ -73,4 +73,5 @@ body {
     font-weight: bold;
     color: var(--light);
     text-shadow: var(--text-shadow);
+    cursor: pointer;
 }
