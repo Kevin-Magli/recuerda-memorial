@@ -51,8 +51,8 @@ async function renderSingleMemorialCard(memorial, user, template) {
 
   const dates =
     memorial.birth_date && memorial.death_date
-      ? `${formatDate(memorial.birth_date)} - ${formatDate(memorial.death_date)}`
-      : formatDate(memorial.birth_date);
+      ? `✴ ${formatDate(memorial.birth_date)} \n † ${formatDate(memorial.death_date)}`
+      : `† ${formatDate(memorial.birth_date)}`;
 
   // Preenche as datas e a descrição no card
   cardElement.querySelector(".mem-card-dates").textContent = dates;
@@ -79,6 +79,16 @@ async function renderSingleMemorialCard(memorial, user, template) {
         window.location.href = `/features/memorial/page/memorial.html?id=${memorial.id}`;
       });
     }
+
+    // Botão Switch: Alterna a classe 'flipped' para animação de giro
+    const switchButton = actionsContainer.querySelector(".switch");
+    if (switchButton) {
+      switchButton.addEventListener("click", (e) => {
+        e.preventDefault();
+        cardElement.classList.toggle("flipped");
+      });
+    }
+
     // Botão Editar: Redireciona para a página de edição
     const editButton = actionsContainer.querySelector(".edit");
     if (editButton) {
@@ -151,3 +161,5 @@ function loadMemorialCardCSS() {
     document.head.appendChild(link);
   });
 }
+
+// there is a button in the actions container called switch(class). I need you to do the following. When click it will cause a "card flip" animation on it's card, revealing the description that is now display none, it will appear at the back of the card. The switch button must also appear at the back to revert the card to it's original state

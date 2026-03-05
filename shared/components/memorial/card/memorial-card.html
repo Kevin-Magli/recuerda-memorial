@@ -1,27 +1,60 @@
 <div class="mem-card">
-  <div class="row-1">
-    <div class="column-1">
-      <img
-        src="/shared/assets/placeholder-profile-img.jpg"
-        alt="Profile Picture"
-        class="mem-card-profile"
-      />
-    </div>
-    <div class="column-2">
-      <h3 class="mem-card-name">Name of the Person</h3>
-      <p class="mem-card-dates">1950 - 2024</p>
-      <p class="mem-card-description">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam
-        corporis natus, explicabo officia corrupti voluptas minus totam ad
-        quibusdam nisi placeat vitae quia, obcaecati, nesciunt nostrum
-        reprehenderit repudiandae error non.
-      </p>
+
+  <!-- FRENTE -->
+  <div class="mem-card-front">
+    <div class="row-1">
+      <div class="column-1">
+        <img
+          src="/shared/assets/placeholder-profile-img.jpg"
+          alt="Profile Picture"
+          class="mem-card-profile"
+        />
+      </div>
+
+      <div class="column-2">
+        <h3 class="mem-card-name">Name of the Person</h3>
+        <p class="mem-card-dates">1950 - 2024</p>
+      </div>
     </div>
   </div>
 
+  <!-- VERSO -->
+  <div class="mem-card-description">
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam
+      corporis natus, explicabo officia corrupti voluptas minus totam ad
+      quibusdam nisi placeat vitae quia.
+    </p>
+  </div>
+
   <div class="row-2 actionsContainer">
-    <button class="btn btn-var1 open">📖 Abrir</button>
-    <button class="btn btn-var2 edit">✏️ Editar</button>
-    <button class="btn delete">🗑️ Excluir</button>
+    <button class="btn btn-var1 open">
+      <img
+        src="/shared/assets/icons/enter.svg"
+        alt="open icon"
+        class="icon i-open"
+      />
+    </button>
+    <button class="btn btn-var2 edit">
+      <img
+        src="/shared/assets/icons/edit.svg"
+        alt="edit icon"
+        class="icon i-edit"
+      />
+    </button>
+    <button class="btn delete">
+      <img
+        src="/shared/assets/icons/trash.svg"
+        alt="delete icon"
+        class="icon i-delete"
+      />
+    </button>
+      <button class="btn-var1 switch">
+    <img
+      src="/shared/assets/icons/switch.svg"
+      alt="switch icon"
+      class="icon i-switch"
+    />
+  </button>
   </div>
 </div>

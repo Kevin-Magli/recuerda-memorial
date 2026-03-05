@@ -49,11 +49,14 @@ document.addEventListener("DOMContentLoaded", async () => {
   form.description.value = memorial.description || "";
 
   const preview = document.getElementById("current-image-preview");
-  if (memorial.image_url) {
-    if (preview) {
-      preview.src = memorial.image_url;
-      preview.classList.remove("hidden");
+  if (preview) {
+    const url = memorial.image_url;
+    if (url && url !== "NULL" && url.trim() !== "") {
+      preview.src = url;
       preview.style.display = "block";
+    } else {
+      preview.removeAttribute("src");
+      preview.style.display = "none";
     }
   }
 });
@@ -63,11 +66,14 @@ const profilePicInput = document.getElementById("profile-pic");
 profilePicInput.addEventListener("change", (event) => {
   const file = event.target.files[0];
   const preview = document.getElementById("current-image-preview");
-  
-  if (file && preview) {
-    preview.src = URL.createObjectURL(file);
-    preview.classList.remove("hidden");
-    preview.style.display = "block";
+
+  if (preview) {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      preview.src = e.target.result;
+      preview.style.display = "block";
+    };
+    reader.readAsDataURL(file);
   }
 });
 
