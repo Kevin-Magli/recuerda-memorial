@@ -28,6 +28,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   // Obtém o usuário logado para verificar permissões de edição/exclusão
   const user = await getUser();
   renderMemorial(memorial, user);
+
 });
 
 /**
@@ -45,8 +46,8 @@ function renderMemorial(memorial, user) {
 
   const dates =
     memorial.birth_date && memorial.death_date
-      ? `${formatDate(memorial.birth_date)} - ${formatDate(memorial.death_date)}`
-      : formatDate(memorial.birth_date);
+      ? `✴ ${formatDate(memorial.birth_date)} \n † ${formatDate(memorial.death_date)}`
+      : `✴ ${formatDate(memorial.birth_date)}`;
 
   document.getElementById("memorial-dates").textContent = dates;
   document.getElementById("memorial-description").textContent =
@@ -96,3 +97,68 @@ function renderMemorial(memorial, user) {
   }
 }
 
+const tributeForm = document.getElementById("tribute-form");
+
+tributeForm.addEventListener("submit", async (event) => {
+  event.preventDefault();
+
+  const cooldown = 2 * 60 * 1000; // 2 minutos
+  const lastSend = localStorage.getItem("lastCommentTime");
+
+  if (lastSend && Date.now() - lastSend < cooldown) {
+    const remainingMs = cooldown - (Date.now() - lastSend);
+    const remainingSeconds = Math.ceil(remainingMs / 1000);
+    alert(`Espere mais ${remainingSeconds} segundos antes de enviar outro comentário.`);
+    return;
+  }
+
+  try {
+    const params = new URLSearchParams(window.location.search);
+    const memorialId = params.get("id");
+
+    const { data: { user }, error: userError } = await supabase.auth.getUser();
+    
+    if (userError || !user) {
+      alert("Não é possivel enviar comentario sem uma conta.");
+      return;
+    }
+    
+    const tributeName = document.getElementById("tribute-name").value;
+    const tributeMessage = document.getElementById("tribute-message").value;
+
+    if (!tributeMessage.trim()) {
+      alert("Não é possivel enviar uma mensagem sem escrever a mensagem");
+      return;
+    }
+
+    const tributeMessageData = {
+      author_id: user.id,
+      memorial_id: memorialId,
+      author_name: tributeName || null,
+      message: tributeMessage,
+    }
+
+    const comment = await saveTributeMessageData(tributeMessageData)
+
+    localStorage.setItem("lastCommentTime", Date.now());
+    alert("Homenagem enviada com sucesso!"); // substituir por um card bonitinho que esconde o forms pós envio, ou um alerta em baixo
+    tributeForm.reset(); 
+
+    localStorage.setItem("lastCommentTime", Date.now());
+    // TODO: Adicionar lógica para atualizar a lista de comentários na tela sem refresh
+
+  } catch (error) {
+    console.error(error);
+  };
+});
+
+async function saveTributeMessageData(tributeMessageData) {
+  const { data, error } = await supabase
+    .from("comments")
+    .insert([tributeMessageData])
+    .select()
+    .single();
+
+  if (error) throw new Error("Erro ao salvar dados do comentario.");
+  return data;
+}

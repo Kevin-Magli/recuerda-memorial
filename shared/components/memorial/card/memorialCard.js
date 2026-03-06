@@ -52,7 +52,7 @@ async function renderSingleMemorialCard(memorial, user, template) {
   const dates =
     memorial.birth_date && memorial.death_date
       ? `✴ ${formatDate(memorial.birth_date)} \n † ${formatDate(memorial.death_date)}`
-      : `† ${formatDate(memorial.birth_date)}`;
+      : `✴ ${formatDate(memorial.birth_date)}`;
 
   // Preenche as datas e a descrição no card
   cardElement.querySelector(".mem-card-dates").textContent = dates;

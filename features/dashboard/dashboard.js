@@ -48,4 +48,4 @@ async function loadPage(page) {
     console.warn(`Sem JS para ${page} ou erro no script:`, err.message);
   }
 }
-if (tabs.length > 0) tabs[0].click(); // CORREÇÃO: Verificação se existem abas antes de tentar clicar na primeira
+if (tabs.length > 0) tabs[1].click(); // CORREÇÃO: Verificação se existem abas antes de tentar clicar na primeira

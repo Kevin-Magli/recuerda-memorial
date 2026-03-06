@@ -8,39 +8,64 @@
     <link rel="stylesheet" href="memorial-style.css" />
   </head>
   <body>
-    <header>
-      <div id="navbar-component"></div>
-    </header>
+    <main>
+      <div class="memorial-page">
+        <div class="memorial-container">
+          <div class="profile-main-section">
+            <div class="img-container">
+              <img id="memorial-image" src="" />
+            </div>
+            <div class="main-info">
+              <h1 id="memorial-name"></h1>
+              <p id="memorial-dates"></p>
+            </div>
+          </div>
 
-    <div class="memorial-container">
-      <div class="profile-main-section">
-        <div class="img-container">
-          <img id="memorial-image" src="" />
+          <p id="memorial-description"></p>
         </div>
-        <div class="main-info">
-          <h1 id="memorial-name"></h1>
-          <p id="memorial-dates"></p>
+
+        <div class="tribute-section">
+          <form id="tribute-form">
+            <input type="name" id="tribute-name" placeholder="Nome (opcional)" />
+            <textarea
+              id="tribute-message"
+              name="tribute-message"
+              cols="30"
+              rows="10"
+              maxlength="500"
+              placeholder="Escreva aqui uma homenagem, memoria, algo que lembre com carinho dessa pessoa ❤︎"
+              required
+            ></textarea>
+            <input type="text" name="website" style="display:none"> <!-- gotcha -->
+            <button type="submit" class="btn btn-var1">Enviar Mensagem</button>
+          </form>
+        </div>
+
+        <div class="row-2 actionsContainer">
+          <!-- <button class="btn btn-var1 open">
+            <img
+              src="/shared/assets/icons/enter.svg"
+              alt="open icon"
+              class="icon i-open"
+            />
+          </button> -->
+          <button class="btn btn-var2 edit">
+            <img
+              src="/shared/assets/icons/edit.svg"
+              alt="edit icon"
+              class="icon i-edit"
+            />
+          </button>
+          <button class="btn delete">
+            <img
+              src="/shared/assets/icons/trash.svg"
+              alt="delete icon"
+              class="icon i-delete"
+            />
+          </button>
         </div>
       </div>
-
-      <p id="memorial-description"></p>
-    </div>
-
-    <div class="tribute-section">
-      <form id="tribute-form">
-        <input type="name" />
-        <textarea id="tribute-text" name="tribute-text"cols="30" rows="10"></textarea>
-      </form>
-    </div>
-
-    <div class="row-2 actionsContainer">
-      <button class="btn btn-var2 edit">
-        <img src="/shared/assets/icons/edit.svg" alt="edit icon">
-      </button>
-      <button class="btn delete">
-        <img src="/shared/assets/icons/trash.svg" alt="delete icon">
-      </button>
-    </div>
+    </main>
     <script type="module" src="/main.js"></script>
     <script type="module" src="memorialPage.js"></script>
   </body>
