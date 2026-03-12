@@ -161,5 +161,3 @@ function loadMemorialCardCSS() {
     document.head.appendChild(link);
   });
 }
-
-// there is a button in the actions container called switch(class). I need you to do the following. When click it will cause a "card flip" animation on it's card, revealing the description that is now display none, it will appear at the back of the card. The switch button must also appear at the back to revert the card to it's original state

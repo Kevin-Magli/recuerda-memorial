@@ -19,7 +19,7 @@ main {
   height: 3rem;
   gap: 1rem;
   align-self: center;
-  max-width: 80vw;
+  max-width: 40rem;
 }
 
 /* ÁREAS são os itens flex */

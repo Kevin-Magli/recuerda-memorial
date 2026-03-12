@@ -1,3 +1,5 @@
+import "/services/supabase/supabaseClient.js";
+
 /**
  * Global initialization for all pages
  */

@@ -1,6 +1,10 @@
 import { supabase } from "/services/supabase/supabaseClient.js";
 import { getUser } from "/features/auth/auth.js";
 
+import { initCommentCards } from "/shared/components/memorial/comments/comments.js";
+import { getComments } from "/shared/components/memorial/core/commentService.js";
+
+
 // Aguarda o carregamento do DOM para iniciar a busca dos dados
 document.addEventListener("DOMContentLoaded", async () => {
   // Extrai o ID do memorial da URL
@@ -28,6 +32,9 @@ document.addEventListener("DOMContentLoaded", async () => {
   // Obtém o usuário logado para verificar permissões de edição/exclusão
   const user = await getUser();
   renderMemorial(memorial, user);
+  
+  // Inicializa a exibição dos comentários aprovados para este memorial
+  initComments(id);
 
 });
 
@@ -162,3 +169,21 @@ async function saveTributeMessageData(tributeMessageData) {
   if (error) throw new Error("Erro ao salvar dados do comentario.");
   return data;
 }
+
+/**
+ * Inicializa a seção de tributos (comentários) na página do memorial.
+ */
+async function initComments(memorialId) {
+  const container = document.querySelector(".query-area");
+  if (!container) return;
+
+  try {
+    // Busca apenas os comentários com status 'approved' para este memorial específico
+    const comments = await getComments("approved", memorialId);
+
+    // Renderiza os cards no container
+    await initCommentCards(container, comments);
+  } catch (error) {
+    console.error("Erro ao carregar comentários:", error);
+  }
+ }
